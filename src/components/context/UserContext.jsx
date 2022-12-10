@@ -4,7 +4,7 @@ import { createContext } from "react";
 export const UserContext = createContext();
 export default function UserProvider({ children }) {
   const [cart, setCart] = useState([]);
-  function handleAppProduct(product) {
+  function handleAddProduct(product) {
     const ProductExist = cart.find((item) => item.id === product.id);
     if (ProductExist) {
       setCart(
@@ -34,7 +34,7 @@ export default function UserProvider({ children }) {
     }
   };
   return (
-    <UserContext.Provider value={{ cart, handleAppProduct ,handleRemoveProduct}}>
+    <UserContext.Provider value={{ cart, handleAddProduct ,handleRemoveProduct }}>
       {children}
     </UserContext.Provider>
   );

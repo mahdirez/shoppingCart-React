@@ -3,7 +3,7 @@ import products from "../../data";
 import { UserContext } from "../context/UserContext";
 
 export default function Card() {
-  const {handleAppProduct} = useContext(UserContext)
+  const { handleAddProduct } = useContext(UserContext);
   return (
     <div className="flex flex-wrap justify-around text-center text-xl gap-4 p-5">
       {products.map((item) => {
@@ -12,8 +12,14 @@ export default function Card() {
             <img src={item.image} className="w-80 h-56" />
             <p>{item.name}</p>
             <p>price:{item.price}$</p>
-            <button onClick={()=>handleAppProduct(item)} className="bg-yellow-300 rounded-full text-white">Add To Cart</button>
+            <button
+              onClick={() => handleAddProduct(item)}
+              className="bg-yellow-300 rounded-full text-white"
+            >
+              Add To Cart
+            </button>
           </div>
+        
         );
       })}
     </div>
